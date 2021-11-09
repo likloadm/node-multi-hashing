@@ -11,9 +11,8 @@
         "url": "https://github.com/ROZ-MOFUMOFU-ME/node-multi-hashing.git"
     },
     "dependencies": {
-        "bindings": "^1.5.0",
-        "nan": "^2.8.0",
-        "safe-buffer": "^5.1.2"
+        "bindings": "^1.3.0",
+        "nan": "^2.8.0"
     },
     "keywords": [
         "scrypt",
