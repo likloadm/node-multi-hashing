@@ -89,6 +89,26 @@ using namespace v8;
 
 #endif // NODE_MAJOR_VERSION
 
+#define DECLARE_NO_INPUT_LENGTH_CALLBACK(name, hash, output_len) \
+    DECLARE_FUNC(name) { \
+    DECLARE_SCOPE; \
+ \
+    if (args.Length() < 1) \
+        RETURN_EXCEPT("You must provide one argument."); \
+ \
+    Local<Object> target = args[0]->ToObject(isolate); \
+ \
+    if(!Buffer::HasInstance(target)) \
+        RETURN_EXCEPT("Argument should be a buffer object."); \
+ \
+    char * input = Buffer::Data(target); \
+    char output[output_len]; \
+ \
+    hash(input, output); \
+ \
+    SET_BUFFER_RETURN(output, output_len); \
+}
+
 #define DECLARE_CALLBACK(name, hash, output_len) \
     DECLARE_FUNC(name) { \
     DECLARE_SCOPE; \
