@@ -707,6 +707,7 @@ DECLARE_INIT(init) {
     NODE_SET_METHOD(exports, "yespower_sugar", yespower_sugar);
     NODE_SET_METHOD(exports, "yespower_ltncg", yespower_ltncg);
     NODE_SET_METHOD(exports, "yespower_r16", yespower_r16);
+    NODE_SET_METHOD(exports, "yespower_tide", yespower_tide);
 }
 
 NODE_MODULE(multihashing, init)
