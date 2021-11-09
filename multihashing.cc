@@ -33,6 +33,7 @@ extern "C" {
     #include "x11.h"
     #include "x13.h"
     #include "x15.h"
+    #include "yespower/yespower.h"
 }
 
 #include "boolberry.h"
@@ -129,6 +130,14 @@ using namespace v8;
  DECLARE_CALLBACK(x13, x13_hash, 32);
  DECLARE_CALLBACK(x15, x15_hash, 32);
 
+ DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower, yespower_hash, 32);
+ DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_0_5_R8, yespower_0_5_R8_hash, 32);
+ DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_0_5_R16, yespower_0_5_R16_hash, 32);
+ DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_0_5_R24, yespower_0_5_R24_hash, 32);
+ DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_0_5_R32, yespower_0_5_R32_hash, 32);
+ DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_ltncg, yespower_ltncg_hash, 32);
+ DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_r16, yespower_r16_hash, 32);
+ DECLARE_NO_INPUT_LENGTH_CALLBACK(yespower_tide, yespower_tide_hash, 32);
 
 DECLARE_FUNC(scrypt) {
    DECLARE_SCOPE;
@@ -662,6 +671,16 @@ DECLARE_INIT(init) {
     NODE_SET_METHOD(exports, "x11", x11);
     NODE_SET_METHOD(exports, "x13", x13);
     NODE_SET_METHOD(exports, "x15", x15);
+    NODE_SET_METHOD(exports, "yespower", yespower);
+    NODE_SET_METHOD(exports, "yespower_0_5_R8", yespower_0_5_R8);
+    NODE_SET_METHOD(exports, "yespower_0_5_R8G", yespower_0_5_R8G);
+    NODE_SET_METHOD(exports, "yespower_0_5_R16", yespower_0_5_R16);
+    NODE_SET_METHOD(exports, "yespower_0_5_R24", yespower_0_5_R24);
+    NODE_SET_METHOD(exports, "yespower_0_5_R32", yespower_0_5_R32);
+    NODE_SET_METHOD(exports, "yespower_sugar", yespower_sugar);
+    NODE_SET_METHOD(exports, "yespower_ltncg", yespower_ltncg);
+    NODE_SET_METHOD(exports, "yespower_r16", yespower_r16);
+    NODE_SET_METHOD(exports, "yespower_tide", yespower_tide);
 }
 
 NODE_MODULE(multihashing, init)
