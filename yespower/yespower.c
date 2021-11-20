@@ -145,7 +145,7 @@ void yespower_r16_hash(const char* input, char* output)
 }
 
 // for YespowerR16 (Yenten)
-void yespower_tide_hash(const char* input, char* output, uint32_t len)
+void yespower_tide_hash(const char* input, char* output)
 {
     yespower_params_t params = {
             .version = YESPOWER_1_0,
@@ -154,5 +154,5 @@ void yespower_tide_hash(const char* input, char* output, uint32_t len)
             .pers = NULL,
             .perslen = 0
     };
-    yespower_tls((yespower_binary_t*)input, len, &params, (yespower_binary_t*)output);
+    yespower_tls((const uint8_t*)input, 80, &params, (yespower_binary_t*)output);
 }
